@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>SDStuffWidget</class>
+ <widget class="QWidget" name="SDStuffWidget">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Widget</string>
+  </property>
+  <widget class="QComboBox" name="countryComboBox">
+   <property name="geometry">
+    <rect>
+     <x>70</x>
+     <y>40</y>
+     <width>191</width>
+     <height>24</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label1">
+   <property name="geometry">
+    <rect>
+     <x>110</x>
+     <y>410</y>
+     <width>471</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>TextLabel</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label2">
+   <property name="geometry">
+    <rect>
+     <x>110</x>
+     <y>470</y>
+     <width>411</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>TextLabel</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="modNameEdit">
+   <property name="geometry">
+    <rect>
+     <x>410</x>
+     <y>60</y>
+     <width>251</width>
+     <height>22</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="createModButton">
+   <property name="geometry">
+    <rect>
+     <x>690</x>
+     <y>60</y>
+     <width>101</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Create New Mod</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="modNameLabel">
+   <property name="geometry">
+    <rect>
+     <x>168</x>
+     <y>150</y>
+     <width>471</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>TextLabel</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="openModButton">
+   <property name="geometry">
+    <rect>
+     <x>690</x>
+     <y>120</y>
+     <width>79</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Open Mod</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="repairButton">
+   <property name="geometry">
+    <rect>
+     <x>500</x>
+     <y>220</y>
+     <width>131</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Switch Repair All</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="repairLabel">
+   <property name="geometry">
+    <rect>
+     <x>640</x>
+     <y>220</y>
+     <width>141</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>TextLabel</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton">
+   <property name="geometry">
+    <rect>
+     <x>498</x>
+     <y>260</y>
+     <width>131</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Switch Supply Amount</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="supplyLabel">
+   <property name="geometry">
+    <rect>
+     <x>640</x>
+     <y>260</y>
+     <width>151</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>TextLabel</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
