@@ -1,10 +1,15 @@
 
+#ifndef CONSTANTS_H
+#define CONSTANTS_H
+
 #include <string>
 
 
-std::string GAMEPATH{"C:/G/Steam/steamapps/common/Steel Division 2/"};
-std::string MODSFOLDER{"Mods/"};
-std::string CREATEBATCH{"CreateNewMod.bat"};
+const std::string GAMEPATH{"C:/G/Steam/steamapps/common/Steel Division 2/"};
+const std::string MODSFOLDER{"Mods/"};
+const std::string CREATEBATCH{"CreateNewMod.bat"};
 
-std::string RAVITAILLEMENT{"/GameData/Gameplay/Constantes/Ravitaillement.ndf"};
-std::string UNITEDESCRIPTOR{"/GameData/Generated/Gameplay/Gfx/UniteDescriptor.ndf"};
+const std::string RAVITAILLEMENT{"/GameData/Gameplay/Constantes/Ravitaillement.ndf"};
+const std::string UNITEDESCRIPTOR{"/GameData/Generated/Gameplay/Gfx/UniteDescriptor.ndf"};
+
+#endif // CONSTANTS_H

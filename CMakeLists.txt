@@ -13,6 +13,14 @@ qt_add_executable(SteedDivisionStuff
         mainwindow.cpp
         mainwindow.h
         mainwindow.ui
+        readSupplyThread.cpp
+        readSupplyThread.h
+        readRepairThread.cpp
+        readRepairThread.h
+        writeSupplyThread.cpp
+        writeSupplyThread.h
+        writeRepairThread.cpp
+        writeRepairThread.h
 )
 target_link_libraries(SteedDivisionStuff PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
 

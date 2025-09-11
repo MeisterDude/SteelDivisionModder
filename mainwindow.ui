@@ -124,17 +124,17 @@
     <string>TextLabel</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton">
+  <widget class="QPushButton" name="supplyButton">
    <property name="geometry">
     <rect>
-     <x>498</x>
+     <x>488</x>
      <y>260</y>
-     <width>131</width>
+     <width>141</width>
      <height>24</height>
     </rect>
    </property>
    <property name="text">
-    <string>Switch Supply Amount</string>
+    <string>Change Supply Multiplier</string>
    </property>
   </widget>
   <widget class="QLabel" name="supplyLabel">
@@ -148,6 +148,16 @@
    </property>
    <property name="text">
     <string>TextLabel</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="SupplyLineEdit">
+   <property name="geometry">
+    <rect>
+     <x>422</x>
+     <y>260</y>
+     <width>61</width>
+     <height>22</height>
+    </rect>
    </property>
   </widget>
  </widget>
