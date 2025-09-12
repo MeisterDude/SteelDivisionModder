@@ -17,10 +17,14 @@ qt_add_executable(SteedDivisionStuff
         readSupplyThread.h
         readRepairThread.cpp
         readRepairThread.h
+        readPointsThread.cpp
+        readPointsThread.h
         writeSupplyThread.cpp
         writeSupplyThread.h
         writeRepairThread.cpp
         writeRepairThread.h
+        writePointsThread.cpp
+        writePointsThread.h
 )
 target_link_libraries(SteedDivisionStuff PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
 

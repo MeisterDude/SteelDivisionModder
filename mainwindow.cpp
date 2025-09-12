@@ -17,27 +17,35 @@ SDStuffWidget::SDStuffWidget(QWidget *parent): QWidget(parent), ui(new Ui::SDStu
     this->rrt = new ReadRepairThread(this);
     connect(rrt, SIGNAL(repairRead(bool, bool)), this, SLOT(setRepairLabel(bool, bool)));
 
+    this->rpt = new ReadPointsThread(this);
+    connect(rpt, SIGNAL(pointsRead(bool, bool)), this, SLOT(setPointsLabel(bool, bool)));
+
     this->wst = new WriteSupplyThread(this);
     connect(wst, SIGNAL(supplyWritten(int, bool)), this, SLOT(setSupplyLabel(int, bool)));
     
     this->wrt = new WriteRepairThread(this);
     connect(wrt, SIGNAL(repairWritten(bool, bool)), this, SLOT(setRepairLabel(bool, bool)));
 
+    this->wpt = new WritePointsThread(this);
+    connect(wpt, SIGNAL(pointsWritten(bool, bool)), this, SLOT(setPointsLabel(bool, bool)));
+
     //connect(ui->createModButton, SIGNAL(clicked()), this, SLOT(createNewMod()));
     connect(this->ui->openModButton, SIGNAL(clicked()), this, SLOT(openMod()));
     connect(this->ui->supplyButton, SIGNAL(clicked()), this, SLOT(setSupply()));
-    connect(ui->repairButton, SIGNAL(clicked()), this, SLOT(switchRepair()));
+    connect(this->ui->repairButton, SIGNAL(clicked()), this, SLOT(switchRepair()));
+    connect(this->ui->pointsButton, SIGNAL(clicked()), this, SLOT(switchPoints()));
     
     //fillCCB();
-    //setSupplyLabel();
 }
 
 SDStuffWidget::~SDStuffWidget() {
     delete this->ui;
     delete this->rst;
     delete this->rrt;
+    delete this->rpt;
     delete this->wst;
     delete this->wrt;
+    delete this->wpt;
 }
 
 
@@ -52,6 +60,9 @@ SDStuffWidget::~SDStuffWidget() {
     }
 }*/
 
+
+// Slots
+
 void SDStuffWidget::openMod() {
     this->modPath = QFileDialog::getExistingDirectory(this, tr("Select Mod"), QString::fromStdString(GAMEPATH + MODSFOLDER), QFileDialog::ShowDirsOnly | QFileDialog::DontResolveSymlinks);
     this->ui->modNameLabel->setText(this->modPath);
@@ -60,6 +71,8 @@ void SDStuffWidget::openMod() {
     this->rst->start();
     this->rrt->setModPath(this->modPath.toStdString());
     this->rrt->start();
+    this->rpt->setModPath(this->modPath.toStdString());
+    this->rpt->start();
 }
 
 void SDStuffWidget::setSupply() {
@@ -72,7 +85,6 @@ void SDStuffWidget::setSupply() {
     this->wst->setModPath(this->modPath.toStdString());
     this->wst->setsupplyMultiplier(newMultiplier, this->supplyMultiplier);
     this->wst->start();
-    //this->supplyMultiplier = newMultiplier;
 }
 
 void SDStuffWidget::switchRepair() {
@@ -81,8 +93,14 @@ void SDStuffWidget::switchRepair() {
     this->wrt->start();
 }
 
+void SDStuffWidget::switchPoints() {
+    this->wpt->setModPath(this->modPath.toStdString());
+    this->wpt->setIsPointsModded(this->isPointsModded);
+    this->wpt->start();
+}
+
 void SDStuffWidget::setSupplyLabel(const int supplyMultiplier, const bool running) {
-    qDebug() << "setSupplyLabel called with" << supplyMultiplier << running;
+    //qDebug() << "setSupplyLabel called with" << supplyMultiplier << running;
     if(running) {
         this->ui->supplyLabel->setText("Working...");
         return;
@@ -101,6 +119,19 @@ void SDStuffWidget::setRepairLabel(const bool isRepairModded, const bool running
         this->ui->repairLabel->setText("Repair modded");
     } else {
         this->ui->repairLabel->setText("Repair not modded");
+    }
+}
+
+void SDStuffWidget::setPointsLabel(const bool isPointsModded, const bool running) {
+    if(running) {
+        this->ui->pointsLabel->setText("Working...");
+        return;
+    }
+    this->isPointsModded = isPointsModded;
+    if(isPointsModded) {
+        this->ui->pointsLabel->setText("Points modded");
+    } else {
+        this->ui->pointsLabel->setText("Points not modded");
     }
 }
 

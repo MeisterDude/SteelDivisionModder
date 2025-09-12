@@ -4,7 +4,7 @@
 #include <filesystem>
 #include <fstream>
 
-#include "WriteSupplyThread.h"
+#include "writeSupplyThread.h"
 #include "constants.h"
 
 

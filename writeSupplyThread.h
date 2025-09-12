@@ -22,7 +22,6 @@ class WriteSupplyThread : public QThread {
     std::string modPath = "";
     int supplyMultiplier = 1, oldMultiplier = 1;
 
-
     void writeSupply(const std::string &modPath, const int multiplier, const int old);
 
     signals:

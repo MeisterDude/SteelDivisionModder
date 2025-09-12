@@ -1,13 +1,15 @@
+
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
 #include <QWidget>
 
-//#include "supply.h"
 #include "readSupplyThread.h"
 #include "readRepairThread.h"
+#include "readPointsThread.h"
 #include "writeSupplyThread.h"
 #include "writeRepairThread.h"
+#include "writePointsThread.h"
 
 
 QT_BEGIN_NAMESPACE
@@ -25,13 +27,14 @@ private:
     Ui::SDStuffWidget *ui;
 
     QString modPath;
-    bool isRepairModded;
+    bool isRepairModded, isPointsModded;
     int supplyMultiplier;
-    //Supply supply;
     ReadSupplyThread *rst;
     ReadRepairThread *rrt;
+    ReadPointsThread *rpt;
     WriteSupplyThread *wst;
     WriteRepairThread *wrt;
+    WritePointsThread *wpt;
 
     //const QString countryText[3], countryStuff[3];
 
@@ -48,8 +51,10 @@ private slots:
     void openMod();
     void switchRepair();
     void setSupply();
+    void switchPoints();
     void setSupplyLabel(const int supplyMultiplier, const bool running = false);
     void setRepairLabel(const bool isRepairModded, const bool running = false);
+    void setPointsLabel(const bool isPointsModded, const bool running = false);
 };
 
 #endif // MAINWINDOW_H
