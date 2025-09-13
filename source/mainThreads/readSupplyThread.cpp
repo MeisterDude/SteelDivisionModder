@@ -5,7 +5,7 @@
 #include <fstream>
 
 #include "readSupplyThread.h"
-#include "constants.h"
+#include "../../constants.h"
 
 
 ReadSupplyThread::ReadSupplyThread(QObject *parent, const std::string modPath) : QThread{parent}, modPath{modPath} {}

@@ -4,27 +4,39 @@ project(SteedDivisionStuff VERSION 0.1 LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_AUTOMOC ON)
+set(CMAKE_AUTORCC ON)
+set(CMAKE_AUTOUIC ON)
 
 find_package(Qt6 REQUIRED COMPONENTS Widgets)
 qt_standard_project_setup()
 
 qt_add_executable(SteedDivisionStuff
         main.cpp
+        mainwindow.ui
         mainwindow.cpp
         mainwindow.h
-        mainwindow.ui
-        readSupplyThread.cpp
-        readSupplyThread.h
-        readRepairThread.cpp
-        readRepairThread.h
-        readPointsThread.cpp
-        readPointsThread.h
-        writeSupplyThread.cpp
-        writeSupplyThread.h
-        writeRepairThread.cpp
-        writeRepairThread.h
-        writePointsThread.cpp
-        writePointsThread.h
+        source/divisionDialog/divisionDialog.ui
+        source/divisionDialog/divisionDialog.cpp
+        source/divisionDialog/divisionDialog.h
+        source/mainThreads/readSupplyThread.cpp
+        source/mainThreads/readSupplyThread.h
+        source/mainThreads/readRepairThread.cpp
+        source/mainThreads/readRepairThread.h
+        source/mainThreads/readPointsThread.cpp
+        source/mainThreads/readPointsThread.h
+        source/mainThreads/writeSupplyThread.cpp
+        source/mainThreads/writeSupplyThread.h
+        source/mainThreads/writeRepairThread.cpp
+        source/mainThreads/writeRepairThread.h
+        source/mainThreads/writePointsThread.cpp
+        source/mainThreads/writePointsThread.h
+        source/divisionDialog/threads/readDivisionsThread.cpp
+        source/divisionDialog/threads/readDivisionsThread.h
+        source/divisionDialog/threads/ReadDivisionRulesThread.cpp
+        source/divisionDialog/threads/ReadDivisionRulesThread.h
+        source/divisionDialog/threads/readPacksThread.cpp
+        source/divisionDialog/threads/readPacksThread.h
 )
 target_link_libraries(SteedDivisionStuff PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
 

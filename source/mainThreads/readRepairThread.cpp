@@ -5,7 +5,7 @@
 #include <fstream>
 
 #include "readRepairThread.h"
-#include "constants.h"
+#include "../../constants.h"
 
 
 ReadRepairThread::ReadRepairThread(QObject *parent, const std::string modPath) : QThread{parent}, modPath{modPath} {}

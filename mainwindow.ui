@@ -186,6 +186,19 @@
     <string>TextLabel</string>
    </property>
   </widget>
+  <widget class="QPushButton" name="divisionButton">
+   <property name="geometry">
+    <rect>
+     <x>510</x>
+     <y>460</y>
+     <width>131</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Division Stuff</string>
+   </property>
+  </widget>
  </widget>
  <resources/>
  <connections/>

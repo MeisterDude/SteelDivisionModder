@@ -4,12 +4,12 @@
 
 #include <QWidget>
 
-#include "readSupplyThread.h"
-#include "readRepairThread.h"
-#include "readPointsThread.h"
-#include "writeSupplyThread.h"
-#include "writeRepairThread.h"
-#include "writePointsThread.h"
+#include "source/mainThreads/readSupplyThread.h"
+#include "source/mainThreads/readRepairThread.h"
+#include "source/mainThreads/readPointsThread.h"
+#include "source/mainThreads/writeSupplyThread.h"
+#include "source/mainThreads/writeRepairThread.h"
+#include "source/mainThreads/writePointsThread.h"
 
 
 QT_BEGIN_NAMESPACE
@@ -19,11 +19,11 @@ QT_END_NAMESPACE
 class SDStuffWidget : public QWidget {
     Q_OBJECT
 
-public:
+    public:
     explicit SDStuffWidget(QWidget *parent = nullptr);
     ~SDStuffWidget();
 
-private:
+    private:
     Ui::SDStuffWidget *ui;
 
     QString modPath;
@@ -44,7 +44,7 @@ private:
     //void readUniteDescriptor();
     
 
-private slots:
+    private slots:
     //void on_countryComboBox_currentIndexChanged();
     //void changeLabels();
     //int createNewMod();
@@ -55,6 +55,7 @@ private slots:
     void setSupplyLabel(const int supplyMultiplier, const bool running = false);
     void setRepairLabel(const bool isRepairModded, const bool running = false);
     void setPointsLabel(const bool isPointsModded, const bool running = false);
+    void openDivisionDialog();
 };
 
 #endif // MAINWINDOW_H

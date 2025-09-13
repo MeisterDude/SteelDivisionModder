@@ -5,27 +5,24 @@
 
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include "source/divisionDialog/divisionDialog.h"
+#include "source/divisionDialog/ui_divisionDialog.h"
 #include "constants.h"
 
 
 SDStuffWidget::SDStuffWidget(QWidget *parent): QWidget(parent), ui(new Ui::SDStuffWidget), modPath(""), isRepairModded(false) {
     this->ui->setupUi(this);
-
+    // mainWidget threads and slots
     this->rst = new ReadSupplyThread(this);
     connect(rst, SIGNAL(supplyRead(int, bool)), this, SLOT(setSupplyLabel(int, bool)));
-
     this->rrt = new ReadRepairThread(this);
     connect(rrt, SIGNAL(repairRead(bool, bool)), this, SLOT(setRepairLabel(bool, bool)));
-
     this->rpt = new ReadPointsThread(this);
     connect(rpt, SIGNAL(pointsRead(bool, bool)), this, SLOT(setPointsLabel(bool, bool)));
-
     this->wst = new WriteSupplyThread(this);
     connect(wst, SIGNAL(supplyWritten(int, bool)), this, SLOT(setSupplyLabel(int, bool)));
-    
     this->wrt = new WriteRepairThread(this);
     connect(wrt, SIGNAL(repairWritten(bool, bool)), this, SLOT(setRepairLabel(bool, bool)));
-
     this->wpt = new WritePointsThread(this);
     connect(wpt, SIGNAL(pointsWritten(bool, bool)), this, SLOT(setPointsLabel(bool, bool)));
 
@@ -34,12 +31,14 @@ SDStuffWidget::SDStuffWidget(QWidget *parent): QWidget(parent), ui(new Ui::SDStu
     connect(this->ui->supplyButton, SIGNAL(clicked()), this, SLOT(setSupply()));
     connect(this->ui->repairButton, SIGNAL(clicked()), this, SLOT(switchRepair()));
     connect(this->ui->pointsButton, SIGNAL(clicked()), this, SLOT(switchPoints()));
+    connect(this->ui->divisionButton, SIGNAL(clicked()), this, SLOT(openDivisionDialog()));
     
     //fillCCB();
 }
 
 SDStuffWidget::~SDStuffWidget() {
     delete this->ui;
+    // Delete mainWidget Threads
     delete this->rst;
     delete this->rrt;
     delete this->rpt;
@@ -132,6 +131,14 @@ void SDStuffWidget::setPointsLabel(const bool isPointsModded, const bool running
         this->ui->pointsLabel->setText("Points modded");
     } else {
         this->ui->pointsLabel->setText("Points not modded");
+    }
+}
+
+void SDStuffWidget::openDivisionDialog() {
+    //qDebug() << std::filesystem::path{this->modPath.toStdString()}.concat(DIVISIONLIST).string();//.append(DIVISIONLIST);
+    divisionDialog divisionDialog(this, std::filesystem::path{this->modPath.toStdString()});
+    if(divisionDialog.exec()) {
+
     }
 }
 

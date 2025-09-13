@@ -5,7 +5,7 @@
 #include <fstream>
 
 #include "writeRepairThread.h"
-#include "constants.h"
+#include "../../constants.h"
 
 
 WriteRepairThread::WriteRepairThread(QObject *parent) : QThread{parent} {}

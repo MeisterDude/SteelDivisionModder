@@ -5,7 +5,7 @@
 #include <fstream>
 
 #include "writeSupplyThread.h"
-#include "constants.h"
+#include "../../constants.h"
 
 
 WriteSupplyThread::WriteSupplyThread(QObject *parent) : QThread{parent} {}

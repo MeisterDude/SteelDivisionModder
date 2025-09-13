@@ -5,7 +5,7 @@
 #include <fstream>
 
 #include "readPointsThread.h"
-#include "constants.h"
+#include "../../constants.h"
 
 
 ReadPointsThread::ReadPointsThread(QObject *parent) : QThread{parent} {}
