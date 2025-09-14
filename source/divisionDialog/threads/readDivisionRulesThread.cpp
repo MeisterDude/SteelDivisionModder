@@ -39,7 +39,7 @@ void ReadDivisionRulesThread::readDivisionRules(std::filesystem::path &path) {
     std::string line;
     while(getline(file, line)) {
         if(line.find("Descriptor_Deck_Division_") != std::string::npos) {
-            std::string divisionName = line.substr(39);
+            std::string divisionName = line.substr(39, line.length() - 40);
             divisionRules[divisionName] = QMap<std::string, QMap<std::string, QMap<std::string, std::string>>>();
             divisionRules[divisionName]["UnitRuleList"] = QMap<std::string, QMap<std::string, std::string>>();
             divisionRules[divisionName]["TransportRuleList"] = QMap<std::string, QMap<std::string, std::string>>();

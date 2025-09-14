@@ -136,8 +136,8 @@ void SDStuffWidget::setPointsLabel(const bool isPointsModded, const bool running
 
 void SDStuffWidget::openDivisionDialog() {
     //qDebug() << std::filesystem::path{this->modPath.toStdString()}.concat(DIVISIONLIST).string();//.append(DIVISIONLIST);
-    divisionDialog divisionDialog(this, std::filesystem::path{this->modPath.toStdString()});
-    if(divisionDialog.exec()) {
+    DivisionDialog DivisionDialog(this, std::filesystem::path{this->modPath.toStdString()});
+    if(DivisionDialog.exec()) {
 
     }
 }

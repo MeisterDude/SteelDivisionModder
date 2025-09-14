@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>divisionDialog</class>
- <widget class="QDialog" name="divisionDialog">
+ <class>DivisionDialog</class>
+ <widget class="QDialog" name="DivisionDialog">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -31,6 +31,45 @@
      <width>371</width>
      <height>551</height>
     </rect>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="analyzeButton">
+   <property name="geometry">
+    <rect>
+     <x>510</x>
+     <y>330</y>
+     <width>79</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Analyze Stuff</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="divisionLabel">
+   <property name="geometry">
+    <rect>
+     <x>450</x>
+     <y>90</y>
+     <width>191</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>TextLabel</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="divisionRulesLabel">
+   <property name="geometry">
+    <rect>
+     <x>450</x>
+     <y>120</y>
+     <width>191</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>TextLabel</string>
    </property>
   </widget>
  </widget>

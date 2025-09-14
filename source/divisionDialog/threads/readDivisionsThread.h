@@ -32,7 +32,7 @@ class ReadDivisionsThread : public QThread {
 
     signals:
     void sendDivision(std::string division);
-    void divisionsDone(QMap<std::string, QMap<std::string, std::vector<std::string>>> divisions);
+    void sendDivisions(QMap<std::string, QMap<std::string, std::vector<std::string>>> divisions);
 
 };
 

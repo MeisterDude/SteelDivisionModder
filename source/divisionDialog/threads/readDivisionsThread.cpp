@@ -17,7 +17,7 @@ void ReadDivisionsThread::run() {
     mutex.unlock();
 
     readDivisions(path);
-    emit divisionsDone(this->divisionContent);;
+    
     analizeContent();
 }
 
@@ -71,6 +71,7 @@ void ReadDivisionsThread::readDivisions(std::filesystem::path &path) {
             qDebug() << "unknown: " << line;
         }
     }
+    emit sendDivisions(this->divisionContent);
 }
 
 void ReadDivisionsThread::readDivisionsHelper(std::ifstream &file, const std::string &name, const std::string &tmp) {
